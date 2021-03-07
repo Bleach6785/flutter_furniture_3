@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_furniture_3/Custom_Icons.dart';
 import 'package:flutter_furniture_3/data.dart';
+import 'package:flutter_furniture_3/ProductDetail.dart';
 
 void main() {
   runApp(MyApp());
@@ -115,95 +116,105 @@ class _HomePageState extends State<HomePage> {
                     scrollDirection: Axis.horizontal,
                     physics: BouncingScrollPhysics(),
                     itemBuilder: (context, index) {
-                      return Padding(
-                        padding: EdgeInsets.only(
-                          left: 35.0,
-                          bottom: 60.0,
-                        ),
-                        child: SizedBox(
-                          width: 200.0,
-                          child: Stack(
-                            fit: StackFit.expand,
-                            children: [
-                              Padding(
-                                padding: EdgeInsets.only(
-                                  top: 45.0,
-                                ),
-                                child: Container(
-                                  decoration: BoxDecoration(
-                                    color: (index % 2 == 0)
-                                        ? Colors.white
-                                        : Color(0xFF2a2d3f),
-                                    boxShadow: [
-                                      BoxShadow(
-                                        color: Colors.black12,
-                                        offset: Offset(0.0, 10.0),
-                                        blurRadius: 10.0,
-                                      ),
-                                    ],
-                                    borderRadius: BorderRadius.circular(12.0),
+                      return InkWell(
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => ProductDetail(),
+                            ),
+                          );
+                        },
+                        child: Padding(
+                          padding: EdgeInsets.only(
+                            left: 35.0,
+                            bottom: 60.0,
+                          ),
+                          child: SizedBox(
+                            width: 200.0,
+                            child: Stack(
+                              fit: StackFit.expand,
+                              children: [
+                                Padding(
+                                  padding: EdgeInsets.only(
+                                    top: 45.0,
                                   ),
-                                ),
-                              ),
-                              Column(
-                                crossAxisAlignment: CrossAxisAlignment.center,
-                                children: [
-                                  Image.asset(
-                                    images[index],
-                                    width: 172.0,
-                                    height: 199.0,
-                                  ),
-                                  SizedBox(
-                                    height: 12.0,
-                                  ),
-                                  Padding(
-                                    padding: EdgeInsets.all(12.0),
-                                    child: Column(
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.start,
-                                      children: [
-                                        Text(
-                                          title[index],
-                                          style: TextStyle(
-                                            fontSize: 16.0,
-                                            fontFamily: "Montserrat-Bold",
-                                            color: (index % 2 == 0)
-                                                ? Color(0xFF2a2d3f)
-                                                : Colors.white,
-                                          ),
+                                  child: Container(
+                                    decoration: BoxDecoration(
+                                      color: (index % 2 == 0)
+                                          ? Colors.white
+                                          : Color(0xFF2a2d3f),
+                                      boxShadow: [
+                                        BoxShadow(
+                                          color: Colors.black12,
+                                          offset: Offset(0.0, 10.0),
+                                          blurRadius: 10.0,
                                         ),
-                                        SizedBox(
-                                          height: 8.0,
-                                        ),
-                                        Text(
-                                          "New Sell",
-                                          style: TextStyle(
-                                            fontSize: 12.0,
-                                            fontFamily: "Montserrat-Medium",
-                                            color: (index % 2 == 0)
-                                                ? Color(0xFF2a2d3f)
-                                                : Colors.white,
-                                          ),
-                                        ),
-                                        SizedBox(
-                                          height: 10.0,
-                                        ),
-                                        Text(
-                                          price[index] + " \$",
-                                          style: TextStyle(
-                                            fontSize: 20.0,
-                                            fontFamily: "Montserrat-Bold",
-                                            color: (index % 2 == 0)
-                                                ? Color(0xFF2a2d3f)
-                                                : Colors.white,
-                                          ),
-                                        )
                                       ],
+                                      borderRadius: BorderRadius.circular(12.0),
                                     ),
                                   ),
-                                ],
-                              ),
-                            ],
+                                ),
+                                Column(
+                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  children: [
+                                    Image.asset(
+                                      images[index],
+                                      width: 172.0,
+                                      height: 199.0,
+                                    ),
+                                    SizedBox(
+                                      height: 12.0,
+                                    ),
+                                    Padding(
+                                      padding: EdgeInsets.all(12.0),
+                                      child: Column(
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        children: [
+                                          Text(
+                                            title[index],
+                                            style: TextStyle(
+                                              fontSize: 16.0,
+                                              fontFamily: "Montserrat-Bold",
+                                              color: (index % 2 == 0)
+                                                  ? Color(0xFF2a2d3f)
+                                                  : Colors.white,
+                                            ),
+                                          ),
+                                          SizedBox(
+                                            height: 8.0,
+                                          ),
+                                          Text(
+                                            "New Sell",
+                                            style: TextStyle(
+                                              fontSize: 12.0,
+                                              fontFamily: "Montserrat-Medium",
+                                              color: (index % 2 == 0)
+                                                  ? Color(0xFF2a2d3f)
+                                                  : Colors.white,
+                                            ),
+                                          ),
+                                          SizedBox(
+                                            height: 10.0,
+                                          ),
+                                          Text(
+                                            price[index] + " \$",
+                                            style: TextStyle(
+                                              fontSize: 20.0,
+                                              fontFamily: "Montserrat-Bold",
+                                              color: (index % 2 == 0)
+                                                  ? Color(0xFF2a2d3f)
+                                                  : Colors.white,
+                                            ),
+                                          )
+                                        ],
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ],
+                            ),
                           ),
                         ),
                       );
